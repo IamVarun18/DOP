@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import "./Hero.css";
+import "./hero.css";
 
 export default function Hero() {
   const heroRef = useRef(null);
