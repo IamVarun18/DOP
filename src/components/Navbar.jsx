@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import "./Navbar.css";
+import "./navbar.css";
 
 const navLinks = [
   { label: "Work", href: "#work" },
