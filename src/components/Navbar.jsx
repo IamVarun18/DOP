@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./navbar.css";
-
 const navLinks = [
   { label: "Work", href: "#work" },
-  { label: "Showreel", href: "#showreel" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
-
 export default function Navbar() {
   const navRef = useRef(null);
   const logoRef = useRef(null);
