@@ -153,22 +153,22 @@ export default function About () {
 
         <div ref={textRef} className='about-text'>
           <p>
-            Hey, I'm Ashish — a Director of Photography and Director who
-            genuinely loves what he does. Whether it's a high-energy music
-            video, an emotional short film, or a sleek ad campaign, I pour
-            everything into making each frame feel alive.
+            Hey, I'm Aashish Shrivastav — a Director of Photography, Director
+            and Founder of{' '}
+            <strong style={{ color: 'var(--gold)' }}>Pitara Filmz</strong>. I'm
+            based in India and I genuinely love what I do. Whether it's a
+            high-energy music video, an emotional short film, or a sleek ad
+            campaign — I pour everything into making each frame feel alive.
           </p>
           <p>
-            I started with a camera and a curiosity that never really switched
-            off. Over the years that curiosity turned into a craft — working
-            with incredible teams, talented artists, and brands that trust me to
-            tell their stories visually.
+            I believe in stories beyond the screen — visuals that move people,
+            that stay with them long after the credits roll. Every project is a
+            new conversation, a new emotion, a new opportunity to create
+            something real.
           </p>
           <p>
-            For me, filmmaking isn't just a job. It's how I see the world. Every
-            project is a new conversation, a new emotion, a new opportunity to
-            create something that stays with people long after the screen goes
-            dark.
+            With a full creative team behind every production, we bring ideas to
+            life with precision, passion, and a whole lot of heart.
           </p>
         </div>
         {/* Stats */}
