@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import "./navbar.css";
+import LensLogo from "./LensLogo";
+
+
 const navLinks = [
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
@@ -52,7 +55,10 @@ export default function Navbar() {
   return (
     <>
       <nav ref={navRef} className="navbar">
-        <a href="#hero" className="nav-logo" ref={logoRef}>DOP</a>
+       <a href="#hero" className="nav-logo" ref={logoRef}>
+  <LensLogo size={36} />
+ 
+</a>
 
         <ul className="nav-links">
           {navLinks.map((link, i) => (
