@@ -22,16 +22,14 @@
   opacity: 0;
 }
 
-.preloader-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8vw, 5rem);
+.preloader-tagline {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
   font-weight: 300;
   letter-spacing: 0.4em;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 8px;
+  text-transform: uppercase;
+  color: var(--gold);
 }
-
 .preloader-tagline {
   font-family: var(--font-body);
   font-size: 0.65rem;

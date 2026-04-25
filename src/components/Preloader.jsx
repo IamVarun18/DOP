@@ -65,7 +65,7 @@ export default function Preloader({ onComplete }) {
 
       {/* Name */}
       <div ref={taglineRef} className="preloader-name">
-        <h1 className="preloader-title">ASHISH</h1>
+       
         <p className="preloader-tagline">Life in a Lens</p>
       </div>
 
