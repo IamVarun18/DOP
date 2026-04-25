@@ -122,31 +122,39 @@
   font-weight: 500;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--black);
-  background: var(--gold);
-  border: none;
+  color: var(--white);
+  background: transparent;
+  border: 1px solid rgba(180, 140, 80, 0.6);
   padding: 16px 40px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: color 0.4s ease;
+  transition: color 0.4s ease, border-color 0.4s ease;
+  z-index: 1;
 }
 
 .form-btn::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--black);
-  border: 1px solid var(--gold);
+  background: var(--gold);
   transform: translateX(-101%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
 }
 
-.form-btn:hover { color: var(--gold); }
-.form-btn:hover::before { transform: translateX(0); }
+.form-btn:hover {
+  color: var(--black);
+  border-color: var(--gold);
+}
 
-.form-btn span { position: relative; z-index: 1; }
+.form-btn:hover::before {
+  transform: translateX(0);
+}
 
+.form-btn:active::before {
+  transform: translateX(-101%);
+}
 /* ── Info ── */
 .contact-info {
   display: flex;
