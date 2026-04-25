@@ -6,13 +6,12 @@
 /* ── Header ── */
 .work-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 72px;
 }
 
 .work-tag {
   font-family: var(--font-body);
   font-size: 0.65rem;
-  font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--gold);
@@ -42,7 +41,7 @@
 .work-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 4px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -51,120 +50,158 @@
 .work-card {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4/5;
+  aspect-ratio: 16/9;
   cursor: pointer;
   opacity: 0;
+  background: #111;
 }
 
-.work-img {
+/* Every 7th card goes wide */
+.work-card:nth-child(7n + 1) {
+  grid-column: span 2;
+}
+
+/* ── Thumbnail ── */
+.work-thumb-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.work-thumb {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: none;
+  object-position: center;
+  display: block;
   will-change: transform;
 }
 
-.work-placeholder-icon {
-  opacity: 0.5;
-}
-
-/* ── Hover overlay ── */
+/* ── Hover Overlay ── */
 .work-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
     rgba(5, 5, 5, 0.95) 0%,
-    rgba(5, 5, 5, 0.4) 50%,
+    rgba(5, 5, 5, 0.4) 60%,
     rgba(5, 5, 5, 0.1) 100%
   );
   opacity: 0;
-  transition: none;
   will-change: opacity;
 }
 
-/* ── Info (slides up on hover) ── */
-.work-info {
+/* ── Play Button ── */
+.work-play {
   position: absolute;
-  bottom: 50px;
-  left: 24px;
-  right: 24px;
-  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
-  transform: translateY(20px);
+  z-index: 3;
   will-change: transform, opacity;
+  padding-left: 4px;
 }
 
-.work-category {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 6px;
+/* ── Hover Info ── */
+.work-info {
+  position: absolute;
+  bottom: 44px;
+  left: 20px;
+  right: 20px;
+  z-index: 4;
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: transform, opacity;
 }
 
 .work-name {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 400;
-  letter-spacing: 0.05em;
   color: var(--white);
-  margin-bottom: 4px;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
 }
 
-.work-year {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: rgba(240, 236, 228, 0.5);
-}
-
-/* ── Always visible bottom strip ── */
+/* ── Bottom Strip ── */
 .work-bottom {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 12px 24px;
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: rgba(5, 5, 5, 0.6);
-  z-index: 3;
+  background: rgba(5, 5, 5, 0.75);
+  z-index: 5;
   border-top: 1px solid rgba(180, 140, 80, 0.1);
 }
 
 .work-bottom-title {
   font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: rgba(240, 236, 228, 0.7);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Modal ── */
+.work-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.96);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  backdrop-filter: blur(8px);
+}
+
+.work-modal-close {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  background: none;
+  border: 1px solid rgba(180, 140, 80, 0.3);
   color: var(--white);
-  text-transform: uppercase;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+  z-index: 1000;
 }
 
-.work-bottom-cat {
-  font-family: var(--font-body);
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
+.work-modal-close:hover {
+  border-color: var(--gold);
   color: var(--gold);
-  text-transform: uppercase;
 }
 
-/* ── Make first and 5th card span 2 columns for variety ── */
-.work-card:nth-child(1) {
-  grid-column: span 2;
+.work-modal-inner {
+  width: 90vw;
+  max-width: 1100px;
   aspect-ratio: 16/9;
 }
 
-.work-card:nth-child(6) {
-  grid-column: span 2;
-  aspect-ratio: 16/9;
+.work-modal-inner iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
 /* ── Responsive ── */
@@ -172,8 +209,7 @@
   .work-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .work-card:nth-child(1),
-  .work-card:nth-child(6) {
+  .work-card:nth-child(7n + 1) {
     grid-column: span 2;
   }
 }
@@ -183,12 +219,10 @@
     padding: 80px 16px;
   }
   .work-grid {
-    grid-template-columns: 1fr;
-    gap: 2px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3px;
   }
-  .work-card:nth-child(1),
-  .work-card:nth-child(6) {
+  .work-card:nth-child(7n + 1) {
     grid-column: span 1;
-    aspect-ratio: 4/5;
   }
 }
